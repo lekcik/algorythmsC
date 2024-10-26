@@ -7,7 +7,7 @@ template<class T> void bubbleSort(T array[], int arraySize) {
 
     for (int i = arraySize; i >= 0; i--) {
         for (int j = 0; j < i - 1; j++) {
-            if (array[j] < array[j + 1]) {
+            if (array[j] > array[j + 1]) {
                 temp = array[j + 1];
                 array[j + 1] = array[j];
                 array[j] = temp;
