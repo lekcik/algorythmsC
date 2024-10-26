@@ -46,10 +46,34 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    int array[] = { 4, 18, 32, 2, 1, 19, 22, 17 };
+    int array[30];
     int arraySize = sizeof(array) / sizeof(array[0]);
 
+    for (int i = 0; i < arraySize; i++) {
+        array[i] = rand() % 90 + 10;
+    }
+
+    std::cout << "BUBBLE SORT\n";
+
     std::cout << "UNORDERED ARRAY" << std::endl;
+    for (int& elem : array) {
+        std::cout << elem << " ";
+    }
+
+    bubbleSort(array, arraySize);
+
+    std::cout << "\n\nORDERED ARRAY" << std::endl;
+    for (int& elem : array) {
+        std::cout << elem << " ";
+    }
+
+    for (int i = 0; i < arraySize; i++) {
+        array[i] = rand() % 90 + 10;
+    }
+
+    std::cout << "\n\nQUICK SORT";
+
+    std::cout << "\nUNORDERED ARRAY" << std::endl;
     for (int& elem : array) {
         std::cout << elem << " ";
     }
