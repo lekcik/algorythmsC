@@ -19,10 +19,20 @@ template<class T> void insertionSort(T array[], int arraySize) {
         }
     }    
 }
-
-template<class T> void shallSort(T array[], int arraySize) {
-
+ template<class T> void shellSort(T array[], int arraySize) {
+    for (int gap = arraySize / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < arraySize; i++) {
+            T temp = array[i];
+            int j;
+            for (j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+                array[j] = array[j - gap];
+            }
+            array[j] = temp;
+        }
+    }
 }
+
+
 
 int main()
 {
@@ -45,7 +55,7 @@ int main()
     }
     std::cout << "\n" << std::endl;
 
-    int secondArray[] = {2, 5, 9, 1, 4, 7};
+    int secondArray[] = {2, 5, 9, 1, 4, 7, 5, 2, 4, 1, 6, 9, 14, 2};
     int secondArraySize = sizeof(secondArray) / sizeof(secondArray[0]);
 
     std::cout << "Not ordered array" << std::endl;
@@ -54,11 +64,11 @@ int main()
     }
     std::cout << std::endl;
 
-    //insertionSort(array, arraySize);
+    shellSort(secondArray, secondArraySize);
 
-    //std::cout << "Ordered array with InsertionSort" << std::endl;
-    //for (auto& elem : array) {
-    //    std::cout << elem << " ";
-    //}
-    //std::cout << std::endl;
+    std::cout << "Ordered array with ShellSort" << std::endl;
+    for (auto& elem : secondArray) {
+        std::cout << elem << " ";
+    }
+    std::cout << std::endl;
 }
